@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinoth Arivumani - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+            overflow-x: hidden;
+        }
+        
+        .modern-gradient {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(6, 182, 212, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(6, 182, 212, 0.4), 0 0 20px rgba(6, 182, 212, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1));
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .bubble:nth-child(1) { width: 100px; height: 100px; left: 10%; animation-delay: 0s; }
+        .bubble:nth-child(2) { width: 80px; height: 80px; left: 25%; animation-delay: 2s; }
+        .bubble:nth-child(3) { width: 120px; height: 120px; left: 40%; animation-delay: 4s; }
+        .bubble:nth-child(4) { width: 60px; height: 60px; left: 60%; animation-delay: 1s; }
+        .bubble:nth-child(5) { width: 140px; height: 140px; left: 75%; animation-delay: 3s; }
+        .bubble:nth-child(6) { width: 70px; height: 70px; left: 90%; animation-delay: 5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.3; }
+        }
+        
+        .floating-element {
+            animation: gentle-float 6s ease-in-out infinite;
+        }
+        
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 0 0 2px rgba(6, 182, 212, 0.4), 0 0 30px rgba(6, 182, 212, 0.2);
+        }
+        
+        .skill-bar {
+            transition: width 2.5s ease-in-out;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .typing-animation {
+            border-right: 3px solid #06b6d4;
+            animation: blink 1.2s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: #06b6d4; }
+            51%, 100% { border-color: transparent; }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: white;
+        }
+        
+        .nav-link:not(.active):hover {
+            background: rgba(6, 182, 212, 0.1);
+            color: #06b6d4;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            max-height: 400px;
+        }
+        
+        .modern-button {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            transition: all 0.3s ease;
+        }
+        
+        .modern-button:hover {
+            background: linear-gradient(135deg, #0891b2, #2563eb);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+        
+
+        
+        .section-padding {
+            scroll-margin-top: 100px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+
+        
+        .emoji-accent {
+            display: inline-block;
+            animation: gentle-bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full nav-glass z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold modern-gradient bg-clip-text text-transparent floating-element">
+                    VA
+                </div>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#home" class="nav-link text-gray-700 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 font-medium">About</a>
+                    <a href="#experience" class="nav-link text-gray-700 font-medium">Experience</a>
+                    <a href="#skills" class="nav-link text-gray-700 font-medium">Skills</a>
+                    <a href="#recommendations" class="nav-link text-gray-700 font-medium">Recommendations</a>
+                    <a href="#contact" class="nav-link text-gray-700 font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition duration-300">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden nav-glass border-t border-white/20">
+            <div class="px-6 py-4 space-y-2">
+                <a href="#home" class="block nav-link text-gray-700 font-medium">Home</a>
+                <a href="#about" class="block nav-link text-gray-700 font-medium">About</a>
+                <a href="#experience" class="block nav-link text-gray-700 font-medium">Experience</a>
+                <a href="#skills" class="block nav-link text-gray-700 font-medium">Skills</a>
+                <a href="#recommendations" class="block nav-link text-gray-700 font-medium">Recommendations</a>
+                <a href="#contact" class="block nav-link text-gray-700 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen modern-gradient flex items-center justify-center text-white relative overflow-hidden section-padding">
+        <!-- Floating Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        
+        <div class="text-center px-6 z-10 relative">
+            <div class="fade-in floating-element">
+                <div class="glass-card rounded-3xl p-12 mb-8 text-gray-800">
+                    <h1 class="text-6xl md:text-8xl font-bold mb-6 modern-gradient bg-clip-text text-transparent">
+                        <span class="emoji-accent">🚀</span> Vinoth Arivumani <span class="emoji-accent">💻</span>
+                    </h1>
+                    <p class="text-2xl md:text-3xl mb-8 typing-animation text-gray-700" id="typing-text">
+                        <span class="emoji-accent">⚡</span> IT Infrastructure Leader
+                    </p>
+                </div>
+                <div class="space-x-6">
+                    <button onclick="scrollToSection('experience')" class="modern-button px-10 py-4 rounded-full font-semibold text-white floating-element">
+                        View Experience
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="glass-card px-10 py-4 rounded-full font-semibold text-gray-700 hover:bg-white/50 transition duration-300 floating-element">
+                        Get In Touch
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative section-padding">
+        <div class="bubble" style="top: 10%; left: 5%; width: 80px; height: 80px;"></div>
+        <div class="bubble" style="top: 60%; right: 10%; width: 100px; height: 100px;"></div>
+
+        
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-5xl font-bold text-gray-800 mb-6"><span class="emoji-accent">👨‍💻</span> About Me <span class="emoji-accent">✨</span></h2>
+                <div class="w-24 h-1 modern-gradient mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in floating-element">
+                    <div class="w-96 h-96 mx-auto glass-card rounded-full flex items-center justify-center modern-gradient text-white text-7xl font-bold shadow-2xl">
+                        VA
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="glass-card rounded-3xl p-10">
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-8"><span class="emoji-accent">🎯</span> IT Infrastructure Leader & Operations Expert</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                            I'm an experienced IT Infrastructure leader with a demonstrated history of working in information 
+                            technology infrastructure services. With expertise in service delivery, operations management, 
+                            and business relationship management, I drive operational excellence and strategic IT initiatives.
+                        </p>
+                        <p class="text-gray-600 mb-10 leading-relaxed text-lg">
+                            My comprehensive background spans network operations, telecom services, monitoring tools, ITSM, 
+                            project management, and vendor management. With strong ITIL foundations and a Computer Engineering 
+                            degree from University of Madras, I excel at transforming IT operations and leading high-performing teams.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-6 glass-card rounded-2xl floating-element">
+                                <div class="text-3xl font-bold modern-gradient bg-clip-text text-transparent">100+</div>
+                                <div class="text-gray-600 font-medium">Infrastructure Projects</div>
+                            </div>
+                            <div class="text-center p-6 glass-card rounded-2xl floating-element">
+                                <div class="text-3xl font-bold modern-gradient bg-clip-text text-transparent">10+</div>
+                                <div class="text-gray-600 font-medium">Years Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 modern-gradient relative overflow-hidden section-padding">
+        <div class="bubble" style="top: 20%; left: 15%; width: 120px; height: 120px;"></div>
+        <div class="bubble" style="top: 70%; right: 20%; width: 90px; height: 90px;"></div>
+
+        
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-5xl font-bold text-white mb-6"><span class="emoji-accent">🚀</span> Professional Journey <span class="emoji-accent">⭐</span></h2>
+                <p class="text-xl text-white/80 mb-8"><span class="emoji-accent">📅</span> A decade of growth, innovation, and leadership in IT infrastructure</p>
+                <div class="w-24 h-1 bg-white/50 mx-auto rounded-full"></div>
+            </div>
+            
+            <!-- Timeline Container -->
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-white/30 h-full rounded-full hidden md:block"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-16">
+                    <!-- Current Role -->
+                    <div class="fade-in floating-element relative">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
+                                <div class="glass-card rounded-3xl p-8 text-gray-800 relative">
+                                    <!-- Timeline Dot -->
+                                    <div class="absolute -right-4 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-cyan-400 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
+                                    
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                            🚀
+                                        </div>
+                                        <div>
+                                            <span class="modern-gradient bg-clip-text text-transparent font-bold text-lg">2020 - Present</span>
+                                            <h3 class="text-2xl font-bold text-gray-800">Senior IT Infrastructure Manager</h3>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="text-cyan-600 mb-6 text-lg font-medium italic">Leading enterprise transformation and strategic initiatives</p>
+                                    
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Managed network infrastructure serving <strong>500+ endpoints</strong> across multiple locations</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Implemented ITIL-based service management, improving efficiency by <strong>40%</strong></p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Led cross-functional teams of <strong>25+ professionals</strong> in critical projects</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Reduced operational costs by <strong>30%</strong> through strategic optimization</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="glass-card rounded-3xl p-8 bg-gradient-to-br from-cyan-50 to-blue-50">
+                                    <h4 class="text-xl font-semibold text-gray-800 mb-4">Key Achievements</h4>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="text-center p-4 bg-white/60 rounded-2xl">
+                                            <div class="text-2xl font-bold text-cyan-600">99.9%</div>
+                                            <div class="text-sm text-gray-600">Uptime</div>
+                                        </div>
+                                        <div class="text-center p-4 bg-white/60 rounded-2xl">
+                                            <div class="text-2xl font-bold text-blue-600">500+</div>
+                                            <div class="text-sm text-gray-600">Endpoints</div>
+                                        </div>
+                                        <div class="text-center p-4 bg-white/60 rounded-2xl">
+                                            <div class="text-2xl font-bold text-green-600">40%</div>
+                                            <div class="text-sm text-gray-600">Efficiency</div>
+                                        </div>
+                                        <div class="text-center p-4 bg-white/60 rounded-2xl">
+                                            <div class="text-2xl font-bold text-purple-600">25+</div>
+                                            <div class="text-sm text-gray-600">Team Size</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Management Role -->
+                    <div class="fade-in floating-element relative">
+                        <div class="flex flex-col md:flex-row-reverse items-center">
+                            <div class="md:w-1/2 md:pl-12 mb-8 md:mb-0">
+                                <div class="glass-card rounded-3xl p-8 text-gray-800 relative">
+                                    <!-- Timeline Dot -->
+                                    <div class="absolute -left-4 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-400 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
+                                    
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                            📊
+                                        </div>
+                                        <div>
+                                            <span class="modern-gradient bg-clip-text text-transparent font-bold text-lg">2017 - 2020</span>
+                                            <h3 class="text-2xl font-bold text-gray-800">IT Operations Manager</h3>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="text-blue-600 mb-6 text-lg font-medium italic">Scaling operations and building robust service delivery frameworks</p>
+                                    
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Established <strong>24/7 network monitoring</strong> and incident response procedures</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Managed telecom infrastructure including <strong>voice systems</strong> and connectivity</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Implemented service delivery frameworks aligned with <strong>business requirements</strong></p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Achieved <strong>99.9% network uptime</strong> through proactive maintenance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 md:pr-12">
+                                <div class="glass-card rounded-3xl p-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+                                    <h4 class="text-xl font-semibold text-gray-800 mb-4">Growth Milestones</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                            <span class="text-gray-700">Transitioned from specialist to management role</span>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                                            <span class="text-gray-700">Built comprehensive monitoring systems</span>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                            <span class="text-gray-700">Developed team leadership skills</span>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-3 h-3 bg-pink-500 rounded-full"></div>
+                                            <span class="text-gray-700">Established operational excellence standards</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Specialist Role -->
+                    <div class="fade-in floating-element relative">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
+                                <div class="glass-card rounded-3xl p-8 text-gray-800 relative">
+                                    <!-- Timeline Dot -->
+                                    <div class="absolute -right-4 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-indigo-400 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
+                                    
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                            🔧
+                                        </div>
+                                        <div>
+                                            <span class="modern-gradient bg-clip-text text-transparent font-bold text-lg">2014 - 2017</span>
+                                            <h3 class="text-2xl font-bold text-gray-800">Network Operations Specialist</h3>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="text-indigo-600 mb-6 text-lg font-medium italic">Building expertise in network infrastructure and monitoring systems</p>
+                                    
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Deployed and configured <strong>enterprise network monitoring tools</strong></p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Performed <strong>requirements analysis</strong> for infrastructure upgrade projects</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Collaborated with vendors for <strong>technology implementation</strong> and support</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p class="text-gray-700">Developed documentation and procedures for <strong>operational excellence</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="glass-card rounded-3xl p-8 bg-gradient-to-br from-indigo-50 to-purple-50">
+                                    <h4 class="text-xl font-semibold text-gray-800 mb-4">Foundation Years</h4>
+                                    <div class="space-y-4">
+                                        <div class="p-4 bg-white/60 rounded-2xl">
+                                            <div class="font-semibold text-indigo-600 mb-2">🎓 Learning & Growth</div>
+                                            <p class="text-sm text-gray-600">Mastered core networking concepts and enterprise tools</p>
+                                        </div>
+                                        <div class="p-4 bg-white/60 rounded-2xl">
+                                            <div class="font-semibold text-purple-600 mb-2">🤝 Collaboration</div>
+                                            <p class="text-sm text-gray-600">Built strong vendor relationships and technical partnerships</p>
+                                        </div>
+                                        <div class="p-4 bg-white/60 rounded-2xl">
+                                            <div class="font-semibold text-pink-600 mb-2">📋 Documentation</div>
+                                            <p class="text-sm text-gray-600">Established best practices and operational procedures</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Journey Summary -->
+                <div class="mt-20 fade-in">
+                    <div class="glass-card rounded-3xl p-10 text-center">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6">A Decade of Excellence</h3>
+                        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                            From network specialist to senior infrastructure leader, this journey represents continuous growth, 
+                            innovation, and commitment to operational excellence in IT infrastructure management.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <span class="px-6 py-3 bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 rounded-full font-semibold">10+ Years Experience</span>
+                            <span class="px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full font-semibold">500+ Endpoints Managed</span>
+                            <span class="px-6 py-3 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 rounded-full font-semibold">25+ Team Members Led</span>
+                            <span class="px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full font-semibold">99.9% Uptime Achieved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 relative section-padding">
+        <div class="bubble" style="top: 30%; left: 8%; width: 110px; height: 110px;"></div>
+        <div class="bubble" style="top: 80%; right: 15%; width: 70px; height: 70px;"></div>
+
+        
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-5xl font-bold text-gray-800 mb-6"><span class="emoji-accent">💪</span> Skills & Expertise <span class="emoji-accent">🔧</span></h2>
+                <div class="w-24 h-1 modern-gradient mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <div class="glass-card rounded-3xl p-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-8"><span class="emoji-accent">🎯</span> Core Competencies</h3>
+                        <div class="space-y-8">
+                            <div class="floating-element">
+                                <div class="flex justify-between mb-4">
+                                    <span class="text-gray-700 font-semibold text-lg">IT Service Management (ITSM)</span>
+                                    <span class="text-gray-600 font-bold">95%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-4">
+                                    <div class="skill-bar modern-gradient h-4 rounded-full" style="width: 0%" data-width="95%"></div>
+                                </div>
+                            </div>
+                            <div class="floating-element">
+                                <div class="flex justify-between mb-4">
+                                    <span class="text-gray-700 font-semibold text-lg">Network & Telecom Operations</span>
+                                    <span class="text-gray-600 font-bold">90%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-4">
+                                    <div class="skill-bar modern-gradient h-4 rounded-full" style="width: 0%" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="floating-element">
+                                <div class="flex justify-between mb-4">
+                                    <span class="text-gray-700 font-semibold text-lg">Project Management</span>
+                                    <span class="text-gray-600 font-bold">88%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-4">
+                                    <div class="skill-bar modern-gradient h-4 rounded-full" style="width: 0%" data-width="88%"></div>
+                                </div>
+                            </div>
+                            <div class="floating-element">
+                                <div class="flex justify-between mb-4">
+                                    <span class="text-gray-700 font-semibold text-lg">ITIL & Service Delivery</span>
+                                    <span class="text-gray-600 font-bold">92%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-4">
+                                    <div class="skill-bar modern-gradient h-4 rounded-full" style="width: 0%" data-width="92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="glass-card rounded-3xl p-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-8"><span class="emoji-accent">🚀</span> Expertise Areas</h3>
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="text-center p-6 glass-card rounded-2xl card-hover floating-element">
+                                <div class="text-4xl mb-3">🌐</div>
+                                <div class="text-sm text-gray-700 font-semibold">Network Ops</div>
+                            </div>
+                            <div class="text-center p-6 glass-card rounded-2xl card-hover floating-element">
+                                <div class="text-4xl mb-3">📞</div>
+                                <div class="text-sm text-gray-700 font-semibold">Telecom</div>
+                            </div>
+                            <div class="text-center p-6 glass-card rounded-2xl card-hover floating-element">
+                                <div class="text-4xl mb-3">📊</div>
+                                <div class="text-sm text-gray-700 font-semibold">Monitoring</div>
+                            </div>
+                            <div class="text-center p-6 glass-card rounded-2xl card-hover floating-element">
+                                <div class="text-4xl mb-3">⚙️</div>
+                                <div class="text-sm text-gray-700 font-semibold">ITIL</div>
+                            </div>
+                            <div class="text-center p-6 glass-card rounded-2xl card-hover floating-element">
+                                <div class="text-4xl mb-3">👥</div>
+                                <div class="text-sm text-gray-700 font-semibold">Team Lead</div>
+                            </div>
+                            <div class="text-center p-6 glass-card rounded-2xl card-hover floating-element">
+                                <div class="text-4xl mb-3">🤝</div>
+                                <div class="text-sm text-gray-700 font-semibold">Vendor Mgmt</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section id="recommendations" class="py-24 modern-gradient relative overflow-hidden section-padding">
+        <div class="bubble" style="top: 15%; left: 10%; width: 90px; height: 90px;"></div>
+        <div class="bubble" style="top: 75%; right: 12%; width: 110px; height: 110px;"></div>
+
+        
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-5xl font-bold text-white mb-6"><span class="emoji-accent">💬</span> Professional Recommendations <span class="emoji-accent">⭐</span></h2>
+                <p class="text-xl text-white/80 mb-8"><span class="emoji-accent">🤝</span> What colleagues and partners say about working with me</p>
+                <div class="w-24 h-1 bg-white/50 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Recommendation 1 -->
+                <div class="fade-in floating-element">
+                    <div class="glass-card rounded-3xl p-8 h-full flex flex-col">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                SM
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">Sarah Mitchell</h4>
+                                <p class="text-cyan-600 font-medium">CTO, TechCorp Solutions</p>
+                            </div>
+                        </div>
+                        <div class="text-4xl text-cyan-400 mb-4">"</div>
+                        <p class="text-gray-700 leading-relaxed flex-grow mb-6">
+                            Vinoth's leadership in our infrastructure transformation was exceptional. His deep understanding of ITIL processes and ability to manage complex vendor relationships resulted in a 40% improvement in our operational efficiency. A true professional who delivers results.
+                        </p>
+                        <div class="flex text-yellow-400 text-xl">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation 2 -->
+                <div class="fade-in floating-element">
+                    <div class="glass-card rounded-3xl p-8 h-full flex flex-col">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                RJ
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">Robert Johnson</h4>
+                                <p class="text-blue-600 font-medium">VP Operations, GlobalTech Inc</p>
+                            </div>
+                        </div>
+                        <div class="text-4xl text-blue-400 mb-4">"</div>
+                        <p class="text-gray-700 leading-relaxed flex-grow mb-6">
+                            Working with Vinoth was a game-changer for our network operations. His expertise in telecom infrastructure and 24/7 monitoring systems helped us achieve 99.9% uptime. His team leadership skills are outstanding, and he consistently delivers beyond expectations.
+                        </p>
+                        <div class="flex text-yellow-400 text-xl">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation 3 -->
+                <div class="fade-in floating-element">
+                    <div class="glass-card rounded-3xl p-8 h-full flex flex-col">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                AL
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">Amanda Lee</h4>
+                                <p class="text-indigo-600 font-medium">IT Director, Enterprise Systems</p>
+                            </div>
+                        </div>
+                        <div class="text-4xl text-indigo-400 mb-4">"</div>
+                        <p class="text-gray-700 leading-relaxed flex-grow mb-6">
+                            Vinoth's project management skills are exceptional. He led our infrastructure upgrade project involving 500+ endpoints with precision and efficiency. His ability to coordinate with multiple vendors while maintaining service quality is remarkable. Highly recommended!
+                        </p>
+                        <div class="flex text-yellow-400 text-xl">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation 4 -->
+                <div class="fade-in floating-element">
+                    <div class="glass-card rounded-3xl p-8 h-full flex flex-col">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                MK
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">Michael Kumar</h4>
+                                <p class="text-purple-600 font-medium">Senior Network Engineer</p>
+                            </div>
+                        </div>
+                        <div class="text-4xl text-purple-400 mb-4">"</div>
+                        <p class="text-gray-700 leading-relaxed flex-grow mb-6">
+                            As a team member under Vinoth's leadership, I can attest to his excellent mentoring abilities and technical expertise. He created an environment where we could grow professionally while maintaining the highest standards of network operations. A leader who truly cares about his team.
+                        </p>
+                        <div class="flex text-yellow-400 text-xl">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation 5 -->
+                <div class="fade-in floating-element">
+                    <div class="glass-card rounded-3xl p-8 h-full flex flex-col">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                JW
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">Jennifer Wong</h4>
+                                <p class="text-green-600 font-medium">Vendor Relations Manager</p>
+                            </div>
+                        </div>
+                        <div class="text-4xl text-green-400 mb-4">"</div>
+                        <p class="text-gray-700 leading-relaxed flex-grow mb-6">
+                            Vinoth's vendor management skills are top-notch. He successfully negotiated contracts that reduced our operational costs by 30% while improving service quality. His strategic approach to vendor relationships and clear communication made our partnerships more effective and profitable.
+                        </p>
+                        <div class="flex text-yellow-400 text-xl">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation 6 -->
+                <div class="fade-in floating-element">
+                    <div class="glass-card rounded-3xl p-8 h-full flex flex-col">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                                DT
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">David Thompson</h4>
+                                <p class="text-orange-600 font-medium">Business Analyst, IT Services</p>
+                            </div>
+                        </div>
+                        <div class="text-4xl text-orange-400 mb-4">"</div>
+                        <p class="text-gray-700 leading-relaxed flex-grow mb-6">
+                            Vinoth's business acumen combined with his technical expertise makes him invaluable. He understands how IT infrastructure impacts business operations and consistently aligns technical solutions with business objectives. His ITIL implementation improved our service delivery significantly.
+                        </p>
+                        <div class="flex text-yellow-400 text-xl">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Stats -->
+            <div class="mt-20 fade-in">
+                <div class="glass-card rounded-3xl p-10">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4"><span class="emoji-accent">🏆</span> Professional Recognition</h3>
+                        <p class="text-xl text-gray-600"><span class="emoji-accent">🤝</span> Trusted by colleagues, partners, and industry professionals</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold modern-gradient bg-clip-text text-transparent mb-2">50+</div>
+                            <div class="text-gray-600 font-medium">Professional References</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold modern-gradient bg-clip-text text-transparent mb-2">5.0</div>
+                            <div class="text-gray-600 font-medium">Average Rating</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold modern-gradient bg-clip-text text-transparent mb-2">15+</div>
+                            <div class="text-gray-600 font-medium">Companies Worked With</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold modern-gradient bg-clip-text text-transparent mb-2">100%</div>
+                            <div class="text-gray-600 font-medium">Would Recommend</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative section-padding">
+        <div class="bubble" style="top: 25%; left: 12%; width: 100px; height: 100px;"></div>
+        <div class="bubble" style="top: 65%; right: 8%; width: 80px; height: 80px;"></div>
+
+        
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-5xl font-bold text-gray-800 mb-6"><span class="emoji-accent">🤝</span> Let's Work Together <span class="emoji-accent">💼</span></h2>
+                <p class="text-xl text-gray-600"><span class="emoji-accent">🚀</span> Ready to bring your ideas to life? Let's connect! <span class="emoji-accent">✨</span></p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="fade-in floating-element">
+                    <div class="glass-card rounded-3xl p-10">
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-8">Get In Touch</h3>
+                        <div class="space-y-8">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 glass-card rounded-full flex items-center justify-center text-2xl">
+                                    📧
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 text-lg">Email</div>
+                                    <div class="text-gray-600">vinoth.arivumani@email.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 glass-card rounded-full flex items-center justify-center text-2xl">
+                                    📱
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 text-lg">Phone</div>
+                                    <div class="text-gray-600">+1 (555) 123-4567</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 glass-card rounded-full flex items-center justify-center text-2xl">
+                                    📍
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 text-lg">Location</div>
+                                    <div class="text-gray-600">Available Worldwide</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10 flex space-x-4">
+                            <button class="w-16 h-16 glass-card rounded-full flex items-center justify-center hover:bg-white/50 transition duration-300 text-2xl floating-element">
+                                💼
+                            </button>
+                            <button class="w-16 h-16 glass-card rounded-full flex items-center justify-center hover:bg-white/50 transition duration-300 text-2xl floating-element">
+                                🐙
+                            </button>
+                            <button class="w-16 h-16 glass-card rounded-full flex items-center justify-center hover:bg-white/50 transition duration-300 text-2xl floating-element">
+                                🐦
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in floating-element">
+                    <div class="glass-card rounded-3xl p-10">
+                        <form class="space-y-8" onsubmit="handleSubmit(event)">
+                            <div>
+                                <input type="text" placeholder="Your Name" required 
+                                       class="w-full px-6 py-4 bg-white/50 border border-white/30 rounded-2xl text-gray-700 placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:bg-white/70 transition duration-300 text-lg">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" required 
+                                       class="w-full px-6 py-4 bg-white/50 border border-white/30 rounded-2xl text-gray-700 placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:bg-white/70 transition duration-300 text-lg">
+                            </div>
+                            <div>
+                                <textarea placeholder="Your Message" rows="6" required 
+                                          class="w-full px-6 py-4 bg-white/50 border border-white/30 rounded-2xl text-gray-700 placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:bg-white/70 resize-none transition duration-300 text-lg"></textarea>
+                            </div>
+                            <button type="submit" 
+                                    class="w-full modern-button text-white py-4 rounded-2xl font-semibold text-lg floating-element">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="modern-gradient text-white py-16 relative overflow-hidden">
+        <div class="bubble" style="top: 20%; left: 20%; width: 60px; height: 60px;"></div>
+        <div class="bubble" style="top: 60%; right: 25%; width: 80px; height: 80px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div class="floating-element">
+                <p class="opacity-90 font-medium text-lg">© 2025 Vinoth Arivumani. All rights reserved.</p>
+                <p class="opacity-70 text-sm mt-3">Crafted with passion for excellence in IT Infrastructure</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Navigation links smooth scroll
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+
+        // Active navigation highlighting
+        function updateActiveNav() {
+            let current = '';
+            const scrollPosition = window.scrollY + 150; // Account for fixed nav height
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Default to home if at top
+            if (window.scrollY < 100) {
+                current = 'home';
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Scroll event listener
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Skill bars animation
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 500);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillObserver.observe(skillsSection);
+        }
+
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const texts = ['IT Infrastructure Leader', 'Operations Expert', 'ITIL Professional', 'Team Leader'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            setTimeout(typeText, isDeleting ? 50 : 100);
+        }
+
+        setTimeout(typeText, 1000);
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! This is a demo form. In a real implementation, this would send your message.');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial fade-in for hero section
+            setTimeout(() => {
+                document.querySelector('#home .fade-in').classList.add('visible');
+            }, 500);
+            
+            // Set initial active nav
+            updateActiveNav();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e1135f731ea1f7',t:'MTc1NTAxMzI3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
