@@ -202,25 +202,18 @@
     </nav>
 
     <!-- Hero Page -->
-    <section id="home" class="min-h-screen modern-gradient flex items-center justify-center text-white relative overflow-hidden section-padding">
-        <div class="absolute inset-0 grid-pattern"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        
+<section id="home" class="min-h-screen modern-gradient flex items-center justify-center text-white relative overflow-hidden section-padding">
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+
         <div class="text-center px-6 z-10 relative">
             <div class="fade-in floating-element">
-                <h2 class="text-xl md:text-2xl mb-2 text-white/90 font-light font-special glowing-text">
-                    <span class="emoji-accent">⚡</span> Hey, I'm
-                </h2>
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 modern-gradient bg-clip-text text-transparent font-special glowing-text">
-                    Vinoth Arivumani
-                </h1>
-                <p class="text-xl md:text-3xl mb-12 typing-animation text-white/90 font-light font-special glowing-text" id="typing-text">
-                    IT Infrastructure Leader
+                <div class="inline-block p-4 rounded-xl bg-gray-900/40 backdrop-blur-sm mb-4">
+                    <h1 class="text-4xl md:text-6xl font-bold font-special text-white tracking-wide">
+                        Vinoth Arivumani
+                    </h1>
+                </div>
+                <p class="text-xl md:text-3xl mb-8 typing-animation text-white font-special" id="typing-text">
+                    <span class="emoji-accent">⚡</span> IT Infrastructure Leader
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-6">
                     <button onclick="scrollToSection('experience')" class="modern-button px-10 py-4 rounded-full font-semibold text-white floating-element transition duration-300 transform hover:scale-105">
@@ -234,22 +227,20 @@
         </div>
     </section>
 
-    <style>
-        .glowing-text {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-        }
-
-        .grid-pattern {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: grid-move 20s linear infinite;
-        }
-
-        @keyframes grid-move {
-            from { background-position: 0 0; }
-            to { background-position: 40px 40px; }
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+                "opacity": { "value": 0.5, "random": false, "anim": { "enable": false } },
+                "size": { "value": 3, "random": true, "anim": { "enable": false } },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            }
+        });
+    </script>
 
     <!-- About Section -->
     <section id="about" class="py-24 relative section-padding">
