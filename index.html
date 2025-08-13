@@ -202,7 +202,8 @@
     </nav>
 
     <!-- Hero Page -->
-<section id="home" class="min-h-screen modern-gradient flex items-center justify-center text-white relative overflow-hidden section-padding">
+    <section id="home" class="min-h-screen modern-gradient flex items-center justify-center text-white relative overflow-hidden section-padding">
+        <div class="absolute inset-0 grid-pattern"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -212,26 +213,43 @@
         
         <div class="text-center px-6 z-10 relative">
             <div class="fade-in floating-element">
-                <h2 class="text-xl md:text-2xl mb-2 text-white/90 font-light font-special">
+                <h2 class="text-xl md:text-2xl mb-2 text-white/90 font-light font-special glowing-text">
                     <span class="emoji-accent">⚡</span> Hey, I'm
                 </h2>
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 modern-gradient bg-clip-text text-transparent font-special">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 modern-gradient bg-clip-text text-transparent font-special glowing-text">
                     Vinoth Arivumani
                 </h1>
-                <p class="text-xl md:text-3xl mb-12 typing-animation text-white/90 font-light font-special" id="typing-text">
+                <p class="text-xl md:text-3xl mb-12 typing-animation text-white/90 font-light font-special glowing-text" id="typing-text">
                     IT Infrastructure Leader
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-6">
                     <button onclick="scrollToSection('experience')" class="modern-button px-10 py-4 rounded-full font-semibold text-white floating-element transition duration-300 transform hover:scale-105">
                         <span class="emoji-accent">✨</span> View My Work
                     </button>
-                    <button onclick="scrollToSection('contact')" class="glass-card px-10 py-4 rounded-full font-semibold text-white border border-white/50 hover:bg-white/10 transition duration-300 floating-element transform hover:scale-105">
+                    <button onclick="scrollToSection('contact')" class="px-10 py-4 rounded-full font-semibold text-white bg-purple-600 border-2 border-purple-600 hover:bg-purple-700 transition duration-300 floating-element transform hover:scale-105">
                         Contact Me
                     </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .glowing-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            from { background-position: 0 0; }
+            to { background-position: 40px 40px; }
+        }
+    </style>
 
     <!-- About Section -->
     <section id="about" class="py-24 relative section-padding">
